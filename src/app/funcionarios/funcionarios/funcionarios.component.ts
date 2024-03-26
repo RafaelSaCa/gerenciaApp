@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Funcionario } from '../model/funcionario';
 
 @Component({
   selector: 'app-funcionarios',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./funcionarios.component.scss']
 })
 export class FuncionariosComponent {
+
+  funcionarios: Funcionario[] = [];
+  displayedColumns = ['id','nome', 'sobrenome','departamento','turno','dataCriacao','dataAlteracao'];
 
 }
