@@ -1,0 +1,62 @@
+.card-form{
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+mat-divider{
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+
+
+h1.mat-dialog-title{
+  font-family: 'Montserrat';
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+ mat-label  {
+  font-family: 'Montserrat';
+ }
+
+ mat-select {
+  font-family: 'Montserrat';
+ }
+mat-option{
+  font-family: 'Montserrat';
+}
+
+mat-form-field {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+  width: 350px;
+  font-family: 'Montserrat';
+}
+
+mat-dialog-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button{
+        width: 170px;
+        margin-left: 10px;
+        margin-bottom: 30px;
+        font-size: 16px;
+       font-family: 'Montserrat';
+
+      }
+
+
+
+}
+
+
+
