@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content>
+    <span><h1 style="font-family: Montserrat; font-weight: 500;">Relação de Colaboradores</h1></span>
+    <mat-divider></mat-divider>
+    <div class="mat-elevation-z8">
+
+      <app-lista *ngIf="funcionarios$ | async as funcionarios; else spinner"
+       [funcionarios] = " funcionarios"
+        (cadastrar)="onCadastrar()"
+        (editar)="onEdit($event)"
+       ></app-lista>
+
+    <ng-template #spinner >
+      <div class="spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+    </div>
+
+</mat-card-content>
+</mat-card>
