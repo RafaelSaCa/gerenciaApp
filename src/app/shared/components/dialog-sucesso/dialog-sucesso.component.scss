@@ -1,0 +1,22 @@
+mat-divider{
+  width: 70%;
+  margin:  auto;
+  margin-bottom: 15px;
+}
+
+mat-dialog-content{
+  font-family: 'Montserrat';
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+mat-dialog-actions{
+  justify-content: end;
+  margin-right: 10px;
+  margin-bottom: 5px;
+
+        button {
+          font-family: 'Montserrat';
+        }
+
+}
