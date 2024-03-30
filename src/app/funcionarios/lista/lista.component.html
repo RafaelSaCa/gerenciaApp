@@ -1,0 +1,74 @@
+  <mat-table [dataSource]="funcionarios">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef class="column-status-header"> Status  </mat-header-cell>
+
+      <mat-cell *matCellDef="let funcionario "  class="column-status">
+        <div *ngIf="funcionario.ativo == true; else inativo" >
+          <mat-icon aria-hidden="false" aria-label="inativo"  >
+            <span class="material-symbols-outlined">visibility</span>
+          </mat-icon>
+        </div>
+        <ng-template #inativo>
+          <mat-icon aria-hidden="false" aria-label="inativo" >
+            <span class="material-symbols-outlined"> lock</span>
+          </mat-icon>
+        </ng-template>
+
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let funcionario"> {{funcionario.nome}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sobrenome">
+      <mat-header-cell *matHeaderCellDef> Sobrenome </mat-header-cell>
+      <mat-cell *matCellDef="let funcionario"> {{funcionario.sobrenome}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="departamento">
+      <mat-header-cell *matHeaderCellDef > Departamento </mat-header-cell>
+      <mat-cell *matCellDef="let funcionario"> {{funcionario.departamento}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="turno">
+      <mat-header-cell *matHeaderCellDef   class="column-turno-header"> Turno </mat-header-cell>
+      <mat-cell *matCellDef="let funcionario" class="column-turno"> {{funcionario.turno}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dataCriacao">
+      <mat-header-cell *matHeaderCellDef> Data Admissão </mat-header-cell>
+      <mat-cell *matCellDef="let funcionario"> {{funcionario.dataCriacao}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dataAlteracao">
+      <mat-header-cell *matHeaderCellDef> Última Alteração </mat-header-cell>
+      <mat-cell *matCellDef="let funcionario"> {{funcionario.dataAlteracao}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <mat-header-cell  *matHeaderCellDef class="action-column-header">
+        <button mat-raised-button color="primary"  aria-label="adicionar funcionario" (click)="onCadastrar()" >Cadastrar<mat-icon>add</mat-icon></button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let funcionario" class="action-column">
+        <button mat-icon-button color="primary"  aria-label="editar funcionario" >
+          <mat-icon><span class="material-symbols-outlined"> edit_note</span></mat-icon>
+        </button>
+          <button mat-icon-button color="warn" aria-label="remover funcionario">
+            <mat-icon><span class="material-symbols-outlined">delete</span></mat-icon>
+          </button>
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic funcionarios">
+  </mat-paginator>
+
