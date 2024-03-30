@@ -3,11 +3,10 @@ import { Component } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { DialogErroComponent } from 'src/app/shared/components/dialog-erro/dialog-erro.component';
 
-import { Funcionario } from '../model/funcionario';
-import { FuncionariosService } from '../services/funcionarios.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormularioComponent } from '../formulario/formulario.component';
+import { Funcionario } from '../model/funcionario';
+import { FuncionariosService } from '../services/funcionarios.service';
 
 @Component({
   selector: 'app-funcionarios',
@@ -17,7 +16,7 @@ import { FormularioComponent } from '../formulario/formulario.component';
 export class FuncionariosComponent  {
 
   funcionarios$ : Observable<Funcionario[]>;
-  displayedColumns = ['id','nome', 'sobrenome','departamento','turno','dataCriacao','dataAlteracao','acoes'];
+
 
   constructor( private service: FuncionariosService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute){
 
