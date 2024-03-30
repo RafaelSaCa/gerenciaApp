@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { FuncionariosService } from '../services/funcionarios.service';
+import { Router } from '@angular/router';
 import { DialogErroComponent } from 'src/app/shared/components/dialog-erro/dialog-erro.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Location } from '@angular/common';
+import { DialogSucessoComponent } from 'src/app/shared/components/dialog-sucesso/dialog-sucesso.component';
+import { FuncionariosService } from '../services/funcionarios.service';
 
 @Component({
   selector: 'app-formulario',
@@ -26,29 +26,30 @@ export class FormularioComponent {
   constructor( private formBuilder: NonNullableFormBuilder,
                       private service : FuncionariosService,
                       private dialog: MatDialog,
-                      private snackBar : MatSnackBar,
-                      private location: Location
+                      private router: Router
+
   )  { }
 
 
   onSubmit(){
     this.service.salvar(this.form.value)
-          .subscribe( resposta => this.onSuccess(), erro =>{
-            console.log(this.form.value);
+          .subscribe( resposta => this.onSuccess('Cadastro realizado com sucesso!'), erro =>{
             this.onError('Ocorreu um erro ao salvar os dados!')
-          }) ;
+       }) ;
   }
 
-  private onSuccess(){
-    this.snackBar.open('Cadastro realizado com sucesso!','',{duration: 3000});
-    this.location.back();
-  }
+  private onSuccess( msgSucesso : string){
+    this.dialog.open(DialogSucessoComponent,{
+      data: msgSucesso });
+      this.router.navigate(['/funcionarios']);
+    }
+
 
   private onError( msgErro : string){
     this.dialog.open(DialogErroComponent,{
-
-        data: msgErro });
+       data: msgErro });
   }
+
 
 
 }
