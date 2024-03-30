@@ -1,11 +1,15 @@
 mat-divider{
-  width: 80%;
+  width: 70%;
   margin:  auto;
+  margin-bottom: 15px;
 }
-.mat-dialog-content{
-  font-family: 'Montserrat';
 
+mat-dialog-content{
+  font-family: 'Montserrat';
+  font-weight: bold;
+  margin-bottom: 16px;
 }
+
 mat-dialog-actions{
   justify-content: end;
   margin-right: 10px;
@@ -13,7 +17,6 @@ mat-dialog-actions{
 
         button {
           font-family: 'Montserrat';
-
         }
 
 }
